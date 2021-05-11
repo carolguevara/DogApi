@@ -12,6 +12,11 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        getSupportActionBar()?.setDisplayShowHomeEnabled(true)
+        getSupportActionBar()?.setLogo(R.drawable.firullerysml)
+        getSupportActionBar()?.setDisplayUseLogoEnabled(true)
+
         setContentView(R.layout.activity_main)
     }
 

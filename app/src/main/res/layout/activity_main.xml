@@ -4,15 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.MainActivity">
+    tools:context=".ui.MainActivity"
+    android:background="@drawable/background">
 
-    <androidx.fragment.app.FragmentContainerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/main_fragment_container"
-        android:name="com.example.apidog.ui.fragments.MainNavHostFragment"
-        app:defaultNavHost="true"
-        app:navGraph="@navigation/nav_graph"
-        />
+
+        <androidx.fragment.app.FragmentContainerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/main_fragment_container"
+            android:name="com.example.apidog.ui.fragments.MainNavHostFragment"
+            app:defaultNavHost="true"
+            app:navGraph="@navigation/nav_graph"
+            />
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

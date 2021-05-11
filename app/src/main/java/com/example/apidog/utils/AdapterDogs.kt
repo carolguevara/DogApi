@@ -36,7 +36,11 @@ class AdapterDogs () : RecyclerView.Adapter<AdapterDogs.ViewHolder>() {
     // Binds each item in the ArrayList to a view
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val model= items[position]
-        holder.sizeInfo.text="${model.raza} -- ${model.origen} -- ${model.vida}"
+        holder.Nombre.text= model.raza
+        holder.Origin.text= model.origen
+        holder.Vida.text= model.vida
+        holder.Temp.text= model.temp
+
         Picasso.get()
             .load(model.url)
             .into( holder.dogImage)
@@ -44,6 +48,9 @@ class AdapterDogs () : RecyclerView.Adapter<AdapterDogs.ViewHolder>() {
     class ViewHolder (view: View) : RecyclerView.ViewHolder(view) {
         // Holds the TextView that will add each picture to
         val dogImage: ImageView = view.dog_image
-        val sizeInfo: TextView = view.name
+        val Nombre: TextView = view.name
+        val Origin: TextView = view.origin
+        val Vida: TextView = view.age
+        val Temp: TextView = view.temperament
     }
 }
