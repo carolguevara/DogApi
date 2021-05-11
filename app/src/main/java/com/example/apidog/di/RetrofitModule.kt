@@ -27,7 +27,7 @@ fun provideGsonBuilder(): Gson {
 @Provides
 fun provideRetrofit(gson: Gson): Retrofit.Builder {
     return Retrofit.Builder()
-        .baseUrl("https://api.thedogapi.com/v1/breeds/")
+        .baseUrl("https://run.mocky.io/")
         .addConverterFactory(GsonConverterFactory.create(gson))
 }
 

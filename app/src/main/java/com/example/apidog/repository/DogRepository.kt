@@ -20,22 +20,18 @@ class DogRepository constructor (
 
 {
     suspend fun getDogs(): Flow<DataState> = flow {
-        emit(DataState.Error(Exception("error custom")))
+        emit(DataState.Loading)
         delay(5000)
         try {
             val dogData = dogRetrofit.get()
-
             val dogMap = networkMapper.mapFromEntityList(dogData)
-            for (tempCat in dogMap){
-                dogDao.insert(cacheMapper.mapToEntity(tempCat))
+            for (tempDog in dogMap){
+                dogDao.insert(cacheMapper.mapToEntity(tempDog))
             }
             val cacheDog = dogDao.get()
             emit(DataState.Success(cacheMapper.mapFromEntityList(cacheDog)))
-        }catch (e: HttpException){
-            val cacheDog = dogDao.get()
-            //EMIT: Es un notificador de que una accion se ha completado o ha dado un error.
-            // El medio de transporte es DataState.
-            emit(DataState.Success(cacheMapper.mapFromEntityList(cacheDog)))
+        }catch (e: Exception){
+            emit(DataState.Error(e))
         }
     }
 }

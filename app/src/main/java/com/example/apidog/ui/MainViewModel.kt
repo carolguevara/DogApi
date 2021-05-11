@@ -34,9 +34,9 @@ constructor(
 
     fun setStateEvent() {
         viewModelScope.launch {
-            userIntent.consumeAsFlow().collect { intentt ->
+            userIntent.consumeAsFlow().collect { intnt ->
 
-                when(intentt) {
+                when(intnt) {
                     is Intent.GetDogEvent -> {
                         dogRepository.getDogs()
                                 .onEach {
